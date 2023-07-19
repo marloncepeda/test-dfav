@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { GameListComponent } from './components/game-list/game-list.component';
+import { GameFilterComponent } from './components/game-filter/game-filter.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: '', component: GameListComponent },
+  { path: 'filter', component: GameFilterComponent },
+  { path: 'game/:id', component: GameDetailsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
