@@ -1,0 +1,8 @@
+<div *ngIf="game" class="card">
+    <img class="card-img-top" [src]="game.thumbnail" alt="Game Thumbnail">
+    <div class="card-body">
+      <h5 class="card-title">{{ game.title }}</h5>
+      <p class="card-text">{{ game.short_description }}</p>
+    </div>
+  </div>
+  
