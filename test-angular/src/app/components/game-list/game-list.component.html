@@ -1,11 +1,15 @@
-<div class="col-4" *ngFor="let game of games">
-  <div class="card mb-3">
-    <a [routerLink]="['/game', game.id]">
-      <img class="card-img-top" [src]="game.thumbnail" alt="Game Thumbnail">
-      <div class="card-body">
-        <h5 class="card-title">{{ game.title }}</h5>
-        <p class="card-text">{{ game.short_description }}</p>
-      </div>
-    </a>
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let game of games">
+    <div class="card mb-3">
+      <a [routerLink]="['/game', game.id]">
+        <img class="card-img-top" [src]="game.thumbnail" alt="Game Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">{{ game.title }}</h5>
+          <p class="card-text">{{ game.short_description }}</p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
+
+

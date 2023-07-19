@@ -1,5 +1,5 @@
 <form>
-  <div class="form-group">
+  <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
     <label for="platform">Platform:</label>
     <select class="form-control" id="platform" [(ngModel)]="selectedPlatform" [ngModelOptions]="{standalone: true}" (change)="filterGames()">
       <option *ngFor="let platform of platforms" [value]="platform">{{ platform }}</option>
@@ -8,13 +8,15 @@
 </form>
 
 <div class="row">
-  <div class="col-4" *ngFor="let game of games">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let game of games">
     <div class="card mb-3">
-      <img class="card-img-top" [src]="game.thumbnail" alt="Game Thumbnail">
-      <div class="card-body">
-        <h5 class="card-title">{{ game.title }}</h5>
-        <p class="card-text">{{ game.short_description }}</p>
-      </div>
+      <a [routerLink]="['/game', game.id]">
+        <img class="card-img-top" [src]="game.thumbnail" alt="Game Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">{{ game.title }}</h5>
+          <p class="card-text">{{ game.short_description }}</p>
+        </div>
+      </a>
     </div>
   </div>
 </div>
