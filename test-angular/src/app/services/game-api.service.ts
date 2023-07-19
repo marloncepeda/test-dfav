@@ -2,14 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Game } from '../models/game';
+import { Inject } from '@angular/core';
+import { environment as env } from '../../enviroments/enviroments';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class GameApiService {
-  private baseUrl = 'https://www.freetogame.com/api';
 
-  constructor(private http: HttpClient) { }
+export class GameApiService {
+  private baseUrl: string;
+
+  constructor(private http: HttpClient, @Inject('API_URL') private apiUrl: string) {
+    this.baseUrl = apiUrl;
+  }
 
   getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(`${this.baseUrl}/games`);
